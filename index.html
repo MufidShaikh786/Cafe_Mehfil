@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Mehfil — Malvan</title>
+<meta name="description" content="Cafe Mehfil, Malvan. Pasta, mocktails, momos and shakes opposite Apana Bazar. 4.9★, 32 reviews. Dine-in, takeaway, delivery. LGBTQ+ friendly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --toast:#241509;
+    --toast-2:#341d0d;
+    --cheese:#F0A93B;
+    --cheese-light:#FFD98A;
+    --cream:#FBF1DE;
+    --brick:#B23A2E;
+    --brick-light:#D4695C;
+    --muted:#C7AE8E;
+    --line: rgba(240,169,59,0.22);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--toast);
+    color:var(--cream);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; }
+  a{ color:inherit; }
+  .deva{ font-family:'Noto Sans Devanagari', sans-serif; }
+  .mono{ font-family:'Space Mono', monospace; }
+
+  ::selection{ background:var(--brick); color:var(--cream); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+  section{ position:relative; }
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 28px;
+    background:linear-gradient(to bottom, rgba(36,21,9,0.92), rgba(36,21,9,0));
+    backdrop-filter:blur(2px);
+  }
+  .brand{ font-family:'Fraunces', serif; font-size:20px; font-weight:700; letter-spacing:0.01em; }
+  .brand span{ color:var(--cheese); }
+  .nav-links{ display:flex; gap:28px; font-size:14px; color:var(--muted); }
+  .nav-links a{ text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover{ color:var(--cheese-light); }
+  .nav-cta{
+    font-size:13px; font-weight:600; color:var(--toast); background:var(--cheese);
+    padding:9px 18px; border-radius:100px; text-decoration:none; white-space:nowrap;
+  }
+  @media (max-width:720px){ .nav-links{ display:none; } }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100svh; display:flex; flex-direction:column; justify-content:center;
+    padding-top:90px; padding-bottom:60px;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(240,169,59,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(178,58,46,0.14), transparent 55%),
+      var(--toast);
+  }
+  .eyebrow-row{ display:flex; align-items:center; gap:14px; margin-bottom:22px; flex-wrap:wrap; }
+  .eyebrow{
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--cheese); border:1px solid var(--line); padding:6px 12px; border-radius:100px;
+  }
+  .rating-pill{
+    display:flex; align-items:center; gap:6px; font-family:'Space Mono', monospace; font-size:12px;
+    color:var(--toast); background:var(--cheese-light); padding:6px 12px; border-radius:100px; font-weight:700;
+  }
+  .hero h1{
+    font-size:clamp(3.2rem, 10vw, 6.4rem); line-height:0.92; color:var(--cream);
+  }
+  .hero h1 .accent{ color:var(--cheese); font-style:italic; }
+  .hero-hindi{ font-size:clamp(1.1rem,2.6vw,1.6rem); color:var(--muted); margin-top:10px; font-weight:500;}
+  .hero-sub{ max-width:520px; margin-top:22px; color:var(--muted); font-size:17px; }
+  .hero-actions{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .btn-primary{
+    background:var(--brick); color:var(--cream); padding:14px 26px; border-radius:100px;
+    text-decoration:none; font-weight:600; font-size:15px; display:inline-flex; align-items:center; gap:8px;
+    transition:transform 0.2s, background 0.2s; border:none; cursor:pointer;
+  }
+  .btn-primary:hover{ background:var(--brick-light); transform:translateY(-2px); }
+  .btn-secondary{
+    border:1px solid var(--line); color:var(--cream); padding:14px 26px; border-radius:100px;
+    text-decoration:none; font-weight:600; font-size:15px; transition:border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover{ border-color:var(--cheese); background:rgba(240,169,59,0.08); }
+
+  .hero-stats{
+    display:flex; gap:0; margin-top:56px; border-top:1px solid var(--line); padding-top:22px;
+    max-width:640px; flex-wrap:wrap;
+  }
+  .hstat{ padding-right:36px; margin-right:36px; border-right:1px solid var(--line); }
+  .hstat:last-child{ border-right:none; }
+  .hstat .num{ font-family:'Fraunces', serif; font-size:28px; color:var(--cheese-light); }
+  .hstat .lbl{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; margin-top:2px; }
+
+  /* ---------- fairy-light divider (Mehfil's signature — a gathering lit by string lights) ---------- */
+  .light-divider{ width:100%; height:64px; display:block; overflow:visible; background:var(--toast-2); }
+  .bulb{ animation:glow 2.6s ease-in-out infinite; transform-origin:center; }
+  @keyframes glow{
+    0%,100%{ opacity:0.45; transform:scale(0.85); }
+    50%{ opacity:1; transform:scale(1.15); }
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- about ---------- */
+  .about{ padding:110px 0 90px; }
+  .about-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap:64px; align-items:start; }
+  @media (max-width:820px){ .about-grid{ grid-template-columns:1fr; gap:36px; } }
+  .section-label{
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--cheese); margin-bottom:16px; display:block;
+  }
+  .about h2{ font-size:clamp(2.2rem, 5vw, 3.2rem); color:var(--cream); line-height:1.05; }
+  .about-copy{ color:var(--muted); font-size:16.5px; margin-top:22px; max-width:46ch; }
+  .about-copy + .about-copy{ margin-top:14px; }
+  .chip-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
+  .chip{
+    font-size:13px; border:1px solid var(--line); color:var(--muted); padding:8px 14px; border-radius:100px;
+  }
+  .chip.pride{ color:var(--cheese-light); border-color:var(--cheese); }
+
+  /* ---------- menu (receipt style) ---------- */
+  .menu{ padding:90px 0 110px; background:var(--toast-2); }
+  .receipt{
+    background:var(--cream); color:var(--toast); border-radius:4px; padding:44px 40px;
+    max-width:640px; margin:48px auto 0;
+    box-shadow:0 30px 70px rgba(0,0,0,0.35);
+    position:relative;
+  }
+  .receipt::before, .receipt::after{
+    content:""; position:absolute; left:0; right:0; height:12px;
+    background:
+      linear-gradient(135deg, var(--cream) 25%, transparent 25.5%) 0 0/16px 16px,
+      linear-gradient(-135deg, var(--cream) 25%, transparent 25.5%) 0 0/16px 16px;
+  }
+  .receipt::before{ top:-11px; background-color:var(--toast-2); }
+  .receipt::after{ bottom:-11px; transform:rotate(180deg); background-color:var(--toast-2); }
+  .receipt-head{ text-align:center; border-bottom:1px dashed #c9b48f; padding-bottom:18px; margin-bottom:18px; }
+  .receipt-head h3{ font-size:22px; letter-spacing:0.02em; }
+  .receipt-head p{ font-family:'Space Mono', monospace; font-size:11px; color:#8a7554; margin-top:6px; letter-spacing:0.06em; text-transform:uppercase; }
+  .menu-row{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:10px 0; }
+  .menu-row .name{ font-weight:500; font-size:15.5px; }
+  .menu-row .tag{ font-family:'Space Mono', monospace; font-size:10.5px; color:#a3813f; display:block; margin-top:2px; letter-spacing:0.04em; }
+  .menu-row .leader{ flex:1; border-bottom:1px dotted #cbb794; transform:translateY(-4px); min-width:20px; }
+  .menu-row .badge{ font-family:'Space Mono', monospace; font-size:11px; color:#8a7554; white-space:nowrap; }
+  .receipt-foot{ border-top:1px dashed #c9b48f; margin-top:14px; padding-top:16px; display:flex; justify-content:space-between; font-family:'Space Mono', monospace; font-size:13px; }
+  .receipt-note{ text-align:center; margin-top:26px; color:var(--muted); font-size:13.5px; }
+
+  /* ---------- reviews ---------- */
+  .reviews{ padding:100px 0; }
+  .review-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:20px;}
+  .review-score{ display:flex; align-items:baseline; gap:14px; }
+  .review-score .big{ font-family:'Fraunces', serif; font-size:64px; color:var(--cheese-light); line-height:1; }
+  .review-score .meta{ color:var(--muted); font-size:14px; }
+  .stars{ color:var(--cheese); letter-spacing:2px; font-size:15px; }
+  .pull-strip{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:44px; }
+  .pull-chip{ font-size:13px; font-style:italic; color:var(--muted); border:1px solid var(--line); padding:8px 14px; border-radius:100px; }
+  .review-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+  @media (max-width:820px){ .review-grid{ grid-template-columns:1fr; } }
+  .review-card{
+    border:1px solid var(--line); border-radius:16px; padding:26px; background:rgba(240,169,59,0.03);
+    transition:border-color 0.25s, transform 0.25s;
+  }
+  .review-card:hover{ border-color:var(--cheese); transform:translateY(-4px); }
+  .review-card .stars{ margin-bottom:14px; display:block; }
+  .review-card p{ font-size:15px; color:var(--cream); font-style:italic; }
+  .review-card .who{ margin-top:18px; font-family:'Space Mono', monospace; font-size:12px; color:var(--muted); }
+
+  /* ---------- instagram ---------- */
+  .insta{ padding:100px 0; background:var(--toast-2); }
+  .insta-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:40px; }
+  .insta-head h2{ font-size:clamp(2rem,4.5vw,2.8rem); color:var(--cream); }
+  .insta-handle{
+    font-family:'Space Mono', monospace; font-size:14px; color:var(--cheese-light);
+    text-decoration:none; border:1px solid var(--line); padding:9px 16px; border-radius:100px;
+    display:inline-flex; align-items:center; gap:8px; transition:border-color 0.2s, background 0.2s;
+  }
+  .insta-handle:hover{ border-color:var(--cheese); background:rgba(240,169,59,0.08); }
+  .insta-embed-shell{
+    border:1px solid var(--line); border-radius:16px; overflow:hidden; min-height:340px;
+    background:rgba(240,169,59,0.03);
+  }
+  .insta-embed-shell iframe{ width:100%; border:0; display:block; min-height:340px; }
+  .insta-fallback-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:2px; }
+  @media (max-width:820px){ .insta-fallback-grid{ grid-template-columns:repeat(2, 1fr); } }
+  .insta-fallback-grid .cell{
+    aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+    background:
+      repeating-linear-gradient(135deg, rgba(240,169,59,0.10) 0 2px, transparent 2px 14px),
+      var(--toast-2);
+    color:var(--muted); font-size:24px;
+  }
+  .insta-note{ font-size:12.5px; color:var(--muted); margin-top:14px; text-align:center; }
+
+  /* ---------- location ---------- */
+  .location{ padding:100px 0 60px; }
+  .loc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  @media (max-width:820px){ .loc-grid{ grid-template-columns:1fr; } }
+  .loc-card h3{ font-size:15px; text-transform:uppercase; letter-spacing:0.08em; color:var(--cheese); font-family:'Space Mono', monospace; font-weight:700; margin-bottom:12px; }
+  .loc-card p{ color:var(--muted); margin-bottom:22px; font-size:15.5px; }
+  .loc-list{ list-style:none; }
+  .loc-list li{ display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+  .loc-list li span:first-child{ color:var(--muted); }
+  .action-row{ display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; }
+
+  footer{
+    padding:50px 0 34px; text-align:center; border-top:1px solid var(--line);
+  }
+  footer .brand{ justify-content:center; display:flex; margin-bottom:10px;}
+  footer p{ color:var(--muted); font-size:13px; }
+  footer .attrib{ margin-top:18px; font-size:11.5px; color:#8a7554; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Cafe<span>.</span>Mehfil</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#visit">Visit</a>
+  </div>
+  <a class="nav-cta" href="tel:+917208298375">Call to Order</a>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow-row">
+      <span class="eyebrow">Malvan, Konkan Coast</span>
+      <span class="rating-pill">★ 4.9 · 32 reviews</span>
+    </div>
+    <h1>Good food,<br>better <span class="accent">company.</span></h1>
+    <p class="hero-hindi deva">कैफे महफिल — मालवण</p>
+    <p class="hero-sub">A cosy little gathering spot opposite Apana Bazar in Malvan — pasta, boba mocktails, momos and shakes, made for the moments you sit around a table a little longer. Dine-in, takeaway, or delivery.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="tel:+917208298375">📞 072082 98375</a>
+      <a class="btn-secondary" href="#visit">Get Directions</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="num">4.9★</div><div class="lbl">32 Reviews</div></div>
+      <div class="hstat"><div class="num">₹200–400</div><div class="lbl">Per Person</div></div>
+      <div class="hstat"><div class="num">3</div><div class="lbl">Dine · Takeaway · Deliver</div></div>
+    </div>
+  </div>
+</section>
+
+<svg class="light-divider" viewBox="0 0 1080 64" preserveAspectRatio="none">
+  <path fill="none" stroke="#5a3a17" stroke-width="2" d="M0,14 C180,40 340,-6 520,20 C700,44 860,-4 1080,18"/>
+  <g>
+    <circle class="bulb" cx="40" cy="18" r="5" fill="#F0A93B" style="animation-delay:-0.2s"/>
+    <circle class="bulb" cx="150" cy="30" r="5" fill="#FFD98A" style="animation-delay:-1.4s"/>
+    <circle class="bulb" cx="260" cy="12" r="5" fill="#F0A93B" style="animation-delay:-0.7s"/>
+    <circle class="bulb" cx="370" cy="26" r="5" fill="#FFD98A" style="animation-delay:-1.9s"/>
+    <circle class="bulb" cx="480" cy="16" r="5" fill="#F0A93B" style="animation-delay:-0.4s"/>
+    <circle class="bulb" cx="590" cy="30" r="5" fill="#FFD98A" style="animation-delay:-2.2s"/>
+    <circle class="bulb" cx="700" cy="14" r="5" fill="#F0A93B" style="animation-delay:-1.0s"/>
+    <circle class="bulb" cx="810" cy="28" r="5" fill="#FFD98A" style="animation-delay:-0.5s"/>
+    <circle class="bulb" cx="920" cy="12" r="5" fill="#F0A93B" style="animation-delay:-1.6s"/>
+    <circle class="bulb" cx="1030" cy="24" r="5" fill="#FFD98A" style="animation-delay:-0.9s"/>
+  </g>
+</svg>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <span class="section-label">01 — The Place</span>
+      <h2>A mehfil, over<br>momos &amp; mocktails.</h2>
+    </div>
+    <div class="reveal">
+      <p class="about-copy">Cafe Mehfil sits opposite Apana Bazar in Malvan — the kind of easygoing spot named for a gathering, currently holding a 4.9 rating across 32 reviews.</p>
+      <p class="about-copy">Regulars come back for the pastas — the penne Alfredo gets called out often — alongside the Passion Fruit Boba Mocktail, momos, and shakes. Reviewers keep circling back to the same two things: the food, and the vibe of just sitting around with people you like.</p>
+      <div class="chip-row">
+        <span class="chip">Dine-in</span>
+        <span class="chip">Takeaway</span>
+        <span class="chip">Delivery</span>
+        <span class="chip">₹200–400 for two</span>
+        <span class="chip pride">LGBTQ+ friendly</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-label" style="text-align:center;">02 — Fan Favourites</span>
+      <h2 style="font-size:clamp(2rem,4.5vw,2.8rem); color:var(--cream);">What people order twice.</h2>
+    </div>
+
+    <div class="receipt reveal">
+      <div class="receipt-head">
+        <h3>CAFE MEHFIL</h3>
+        <p>Opp. Apana Bazar · Malvan · Order Slip</p>
+      </div>
+
+      <div class="menu-row">
+        <div><span class="name">Penne Alfredo</span><span class="tag">"I like pasta very much... it was yummy"</span></div>
+        <div class="leader"></div>
+        <span class="badge">GUEST FAV</span>
+      </div>
+      <div class="menu-row">
+        <div><span class="name">Passion Fruit Boba Mocktail</span><span class="tag">Ordered alongside the Alfredo, often</span></div>
+        <div class="leader"></div>
+        <span class="badge">GUEST FAV</span>
+      </div>
+      <div class="menu-row">
+        <div><span class="name">Momos</span></div>
+        <div class="leader"></div>
+        <span class="badge">POPULAR</span>
+      </div>
+      <div class="menu-row">
+        <div><span class="name">Shakes</span></div>
+        <div class="leader"></div>
+        <span class="badge">POPULAR</span>
+      </div>
+
+      <div class="receipt-foot">
+        <span>AVG. FOR TWO</span>
+        <span>₹200 – ₹400</span>
+      </div>
+    </div>
+    <p class="receipt-note reveal">Full menu is on the in-store board — call ahead for today's specials.</p>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="review-head reveal">
+      <div class="review-score">
+        <span class="big">4.9</span>
+        <div>
+          <span class="stars">★★★★★</span>
+          <div class="meta">from 32 Google reviews</div>
+        </div>
+      </div>
+      <span class="section-label" style="margin:0;">03 — In Their Words</span>
+    </div>
+
+    <div class="pull-strip reveal">
+      <span class="pull-chip">"The food was amazing, but the music taste?"</span>
+      <span class="pull-chip">"I like pasta very much... it was yummy 😋"</span>
+      <span class="pull-chip">"Absolutely loved our experience at Café Mehfil!"</span>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <span class="stars">★★★★★</span>
+        <p>"I like pasta very much... it was yummy 😋"</p>
+        <div class="who">— Neha Kidaye, Local Guide</div>
+      </div>
+      <div class="review-card reveal">
+        <span class="stars">★★★★★</span>
+        <p>"Absolutely loved our experience at Café Mehfil! We ordered the penne Alfredo and the Passion Fruit Boba Mocktail — everything was delicious and the flavours were perfect."</p>
+        <div class="who">— Mitali Pawar</div>
+      </div>
+      <div class="review-card reveal">
+        <span class="stars">★★★★★</span>
+        <p>"Some moments become special when you find the right place... made for moments."</p>
+        <div class="who">— Fun hook</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="insta" id="instagram">
+  <div class="wrap">
+    <div class="insta-head reveal">
+      <div>
+        <span class="section-label">04 — Fresh From The Kitchen</span>
+        <h2>Live from Instagram.</h2>
+      </div>
+      <a class="insta-handle" href="https://instagram.com/PUT_HANDLE_HERE" target="_blank" rel="noopener">📷 @PUT_HANDLE_HERE</a>
+    </div>
+
+    <!--
+      AUTO-SYNC INSTAGRAM FEED
+      ------------------------
+      This div is where a free auto-updating Instagram widget goes (e.g. SnapWidget, Elfsight, or LightWidget).
+      Once you connect the account on one of those sites, they give you an <iframe> snippet —
+      paste it inside #insta-live below, replacing the fallback grid. New posts appear here automatically,
+      no code changes needed, because the widget's own servers poll Instagram for you.
+
+      Steps:
+      1. Go to snapwidget.com (or elfsight.com) → "Instagram Feed" widget.
+      2. Connect/enter the Cafe Mehfil Instagram account.
+      3. Copy the <iframe> embed code they give you.
+      4. Paste it inside the <div id="insta-live"> below, replacing the fallback grid.
+    -->
+    <div class="insta-embed-shell reveal">
+      <div id="insta-live" class="insta-fallback-grid">
+        <div class="cell">🍝</div>
+        <div class="cell">🧋</div>
+        <div class="cell">🥟</div>
+        <div class="cell">🥤</div>
+        <div class="cell">🍝</div>
+        <div class="cell">🧋</div>
+        <div class="cell">🥟</div>
+        <div class="cell">🥤</div>
+      </div>
+    </div>
+    <p class="insta-note">Live feed connects once the Instagram widget embed code is added — see comment in the page source.</p>
+  </div>
+</section>
+
+<section class="location" id="visit">
+  <div class="wrap">
+    <div class="loc-grid">
+      <div class="loc-card reveal">
+        <h3>Find Us</h3>
+        <p>Cafe Mehfil, opp. Apana Bazar,<br>Malvan, Maharashtra 416606<br><span class="mono" style="font-size:13px;">Plus code: 3F3G+2J Malvan</span></p>
+        <div class="action-row">
+          <a class="btn-primary" href="https://www.google.com/maps/search/?api=1&query=Cafe+Mehfil+Malvan" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+          <a class="btn-secondary" href="tel:+917208298375">Call: 072082 98375</a>
+        </div>
+      </div>
+      <div class="loc-card reveal">
+        <h3>Good to Know</h3>
+        <ul class="loc-list">
+          <li><span>Category</span><span>Cafe</span></li>
+          <li><span>Cost</span><span>₹200–400 per person</span></li>
+          <li><span>Options</span><span>Dine-in · Takeaway · Delivery</span></li>
+          <li><span>Community</span><span>LGBTQ+ friendly</span></li>
+        </ul>
+        <p style="font-size:12.5px; color:var(--muted); margin-top:14px;">Hours aren't listed on the map yet — call ahead to check timings before heading out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">Cafe<span>.</span>Mehfil</div>
+    <p>Opp. Apana Bazar, Malvan, Maharashtra 416606 · 072082 98375</p>
+    <p class="attrib">Ratings, review excerpts and location data via Google Maps. © Cafe Mehfil.</p>
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  items.forEach(i => io.observe(i));
+</script>
+
+</body>
+</html>
